@@ -3,7 +3,7 @@
     "displayName": "Copy On Select",
     "description": "Copy the selected text without having to hit CTRL+C.",
     "publisher": "dinhani",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "repository": "https://github.com/dinhani/vscode-copy-on-select",
     "bugs": "https://github.com/dinhani/vscode-copy-on-select/issues",
@@ -49,11 +49,13 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
     },
+    "dependencies": {
+        "clipboardy": "1.1.0",
+        "debounce": "1.0.0"
+    },
     "devDependencies": {
         "typescript": "^2.1.5",
         "vscode": "^1.1.0",
-        "clipboardy": "1.1.0",
-        "debounce": "1.0.0",
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
