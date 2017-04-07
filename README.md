@@ -11,17 +11,17 @@ The selected text is automatically copied when selected with the mouse first, th
 # Configuration
 
 ```javascript
+// Should copy the selected text when it was selected using the keyboard?
+"copyOnSelect.copyOnKeyboardSelection": false
+
 // Should copy the selected text when it was selected using the mouse?
 "copyOnSelect.copyOnMouseSelection": true
 
-// Should copy the selected text when it was selected using the keyboard?
-"copyOnSelect.copyOnKeyboardSelection": true
-
 // Should trim the start of the copied text?
-"copyOnSelect.trimStart": true
+"copyOnSelect.trimStart": false
 
 // Should trim the end of the copied text?
-"copyOnSelect.trimEnd": false
+"copyOnSelect.trimEnd": true
 ```
 
 # Feedback

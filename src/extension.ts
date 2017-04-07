@@ -32,7 +32,7 @@ function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
     }
 
     // check keyboard copies
-    let copyOnKeyboard = config.get("copyOnKeyboardSelection", true);
+    let copyOnKeyboard = config.get("copyOnKeyboardSelection", false);
     if (event.kind === vscode.TextEditorSelectionChangeKind.Keyboard && !copyOnKeyboard) {
         return false;
     }
@@ -56,7 +56,7 @@ function generateTextToCopy(event: vscode.TextEditorSelectionChangeEvent): strin
     if (config.get("trimStart", false)) {
         text = text.replace(/^\s+/, '');
     }
-    if (config.get("trimEnd", false)) {
+    if (config.get("trimEnd", true)) {
         text = text.replace(/\s+$/, '');
     }
 

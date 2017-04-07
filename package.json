@@ -3,7 +3,7 @@
     "displayName": "Copy On Select",
     "description": "Copy the selected text without having to hit CTRL+C.",
     "publisher": "dinhani",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "license": "MIT",
     "repository": "https://github.com/dinhani/vscode-copy-on-select",
     "bugs": "https://github.com/dinhani/vscode-copy-on-select/issues",
@@ -20,15 +20,15 @@
             "type": "object",
             "title": "Copy On Select extension",
             "properties": {
+                "copyOnSelect.copyOnKeyboardSelection": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Should copy the selected text when it was selected using the keyboard?"
+                },
                 "copyOnSelect.copyOnMouseSelection": {
                     "type": "boolean",
                     "default": true,
                     "description": "Should copy the selected text when it was selected using the mouse?"
-                },
-                "copyOnSelect.copyOnKeyboardSelection": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Should copy the selected text when it was selected using the keyboard?"
                 },
                 "copyOnSelect.trimStart": {
                     "type": "boolean",
