@@ -2,6 +2,12 @@
 
 This extension automatically copies the selected text in the editor when you select it, without having to hit CTRL+C.
 
+# Example
+
+The selected text is automatically copied when selected with the mouse first, then with the keyboard.
+
+
+
 # Configuration
 
 ```javascript

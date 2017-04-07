@@ -4,9 +4,9 @@ import * as vscode from 'vscode';
 const clipboardy = require('clipboardy');
 const debounce = require('debounce');
 
-// ============================================================================
+// =============================================================================
 // EXTENSION INTERFACE
-// ============================================================================
+// =============================================================================
 export function activate(context: vscode.ExtensionContext) {
     vscode.window.onDidChangeTextEditorSelection(debounce(event => {
         if (shouldCopy(event)) {
@@ -48,15 +48,18 @@ function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
 }
 
 function generateTextToCopy(event: vscode.TextEditorSelectionChangeEvent): string {
+    // generate text from selections
     let eol = event.textEditor.document.eol == vscode.EndOfLine.LF ? '\n' : '\r\n';
     var text = event.selections.map(selection => event.textEditor.document.getText(selection)).join(eol);
 
+    // do trimming if necessary
     if (config.get("trimStart", false)) {
         text = text.replace(/^\s+/, '');
     }
     if (config.get("trimEnd", false)) {
         text = text.replace(/\s+$/, '');
     }
+
     return text;
 }
 
