@@ -8,14 +8,41 @@
     "repository": "https://github.com/dinhani/vscode-copy-on-select",
     "bugs": "https://github.com/dinhani/vscode-copy-on-select/issues",
     "engines": {
-        "vscode": "^1.5.0"
+        "vscode": "^1.11.0"
     },
     "categories": [],
     "activationEvents": [
         "*"
     ],
     "main": "./out/src/extension",
-    "contributes": {},
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Copy On Select extension",
+            "properties": {
+                "copyOnSelect.copyOnMouseSelection": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Should copy the selected text when it was selected using the mouse?"
+                },
+                "copyOnSelect.copyOnKeyboardSelection": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Should copy the selected text when it was selected using the keyboard?"
+                },
+                "copyOnSelect.trimStart": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Should trim the start of the selected text?"
+                },
+                "copyOnSelect.trimEnd": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Should trim the end of the selected text?"
+                }
+            }
+        }
+    },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
@@ -24,8 +51,9 @@
     },
     "devDependencies": {
         "typescript": "^2.1.5",
-        "vscode": "^1.0.0",
+        "vscode": "^1.1.0",
         "clipboardy": "1.1.0",
+        "debounce": "1.0.0",
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
