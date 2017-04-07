@@ -1,0 +1,12 @@
+**/*.map
+.gitignore
+.travis.yml
+.vscode-test/**
+.vscode/**
+images/*.gif
+images/*.psd
+out/test/**
+src/**
+test/**
+tsconfig.json
+vsc-extension-quickstart.md
