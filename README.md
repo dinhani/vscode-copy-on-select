@@ -6,7 +6,7 @@ This extension automatically copies the selected text in the editor when you sel
 
 The selected text is automatically copied when selected with the mouse first, then with the keyboard.
 
-
+![Copy On Select example](https://raw.githubusercontent.com/dinhani/vscode-section-divider/master/images/vscode-divider-example.gif)
 
 # Configuration
 
