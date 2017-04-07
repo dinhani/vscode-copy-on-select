@@ -6,10 +6,10 @@ This extension automatically copies the selected text in the editor when you sel
 
 ```javascript
 // Should copy the selected text when it was selected using the mouse?
-"copyOnSelect.copyOnMouseSelection": true,
+"copyOnSelect.copyOnMouseSelection": true
 
 // Should copy the selected text when it was selected using the keyboard?
-"copyOnSelect.copyOnKeyboardSelection": true,
+"copyOnSelect.copyOnKeyboardSelection": true
 
 // Should trim the start of the copied text?
 "copyOnSelect.trimStart": true
