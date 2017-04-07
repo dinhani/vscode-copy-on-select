@@ -1,7 +1,7 @@
 {
     "name": "copy-on-select",
     "displayName": "Copy On Select",
-    "description": "Copy the selected content without having to hit CTRL+C.",
+    "description": "Copy the selected text without having to hit CTRL+C.",
     "publisher": "dinhani",
     "version": "0.0.1",
     "license": "MIT",
@@ -33,12 +33,12 @@
                 "copyOnSelect.trimStart": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Should trim the start of the selected text?"
+                    "description": "Should trim the start of the copied text?"
                 },
                 "copyOnSelect.trimEnd": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Should trim the end of the selected text?"
+                    "description": "Should trim the end of the copied text?"
                 }
             }
         }
