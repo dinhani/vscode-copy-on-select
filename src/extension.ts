@@ -25,26 +25,30 @@ export function deactivate() {
 let config = vscode.workspace.getConfiguration("copyOnSelect");
 
 function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
+    // do not copy when event type cannot be determined
+    if (typeof event.kind === "undefined" || event.kind === null) {
+        return false;
+    }
 
     // do not copy when text was selected by command
     if (event.kind === vscode.TextEditorSelectionChangeKind.Command) {
         return false;
     }
 
-    // check keyboard copies
+    // check if should perform keyboard copy
     let copyOnKeyboard = config.get("copyOnKeyboardSelection", false);
-    if (event.kind === vscode.TextEditorSelectionChangeKind.Keyboard && !copyOnKeyboard) {
-        return false;
+    if (event.kind === vscode.TextEditorSelectionChangeKind.Keyboard && copyOnKeyboard) {
+        return true;
     }
 
-    // check mouse copies
+    // check if should perform mouse copy
     let copyOnMouse = config.get("copyOnMouseSelection", true);
-    if (event.kind === vscode.TextEditorSelectionChangeKind.Mouse && !copyOnMouse) {
-        return false;
+    if (event.kind === vscode.TextEditorSelectionChangeKind.Mouse && copyOnMouse) {
+        return true;
     }
 
-    // do copy
-    return true;
+    // do copy in any other not foreseen case
+    return false;
 }
 
 function generateTextToCopy(event: vscode.TextEditorSelectionChangeEvent): string {
