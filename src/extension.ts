@@ -43,7 +43,7 @@ function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
         return false;
     }
 
-    // do not copy
+    // do copy
     return true;
 }
 
