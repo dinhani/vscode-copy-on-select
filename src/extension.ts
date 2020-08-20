@@ -1,17 +1,16 @@
 'use strict';
 
 import * as vscode from 'vscode';
-const clipboardy = require('clipboardy');
 const debounce = require('debounce');
 
 // =============================================================================
 // EXTENSION INTERFACE
 // =============================================================================
 export function activate(context: vscode.ExtensionContext) {
-    vscode.window.onDidChangeTextEditorSelection(debounce(event => {
+    vscode.window.onDidChangeTextEditorSelection(debounce(async (event: vscode.TextEditorSelectionChangeEvent) => {
         if (shouldCopy(event)) {
             let text = generateTextToCopy(event);
-            copyToClipboard(text);
+            await copyToClipboard(text);
         }
     }, 300))
 }
@@ -32,6 +31,12 @@ function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
 
     // do not copy when text was selected by command
     if (event.kind === vscode.TextEditorSelectionChangeKind.Command) {
+        return false;
+    }
+
+    // ignore clicks
+    let sel0 = event.selections[0];
+    if (sel0.anchor.line === sel0.active.line && sel0.anchor.character === sel0.active.character) {
         return false;
     }
 
@@ -67,12 +72,16 @@ function generateTextToCopy(event: vscode.TextEditorSelectionChangeEvent): strin
     return text;
 }
 
-function copyToClipboard(text: string) {
+async function copyToClipboard(text: string) {
     // do not copy empty text
     if (text.trim() === '') {
         return;
     }
 
     // copy
-    clipboardy.writeSync(text);
+    try {
+        await vscode.env.clipboard.writeText(text);
+    } catch (error) {
+        vscode.window.showErrorMessage('copy-on-select failed. Error: ' + JSON.stringify(error));
+    }
 }
