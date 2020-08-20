@@ -1,5 +1,6 @@
 # Change Log
 
+**0.0.7:** Enable copying text in Visual Studio Code Remote SSH sessions.
 **0.0.6:** Preventing copying text when the event to copy text was not triggered by keyboard or mouse.
 **0.0.5:** Upgrading external library to better support UTF-8 characters.
 **0.0.4:** Better default configuration values.
