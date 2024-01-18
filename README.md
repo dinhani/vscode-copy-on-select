@@ -1,6 +1,6 @@
 # Copy On Select
 
-This extension automatically copies the selected text in the editor when you select it, without having to hit CTRL+C.
+This extension automatically copies to the clipboard the selected text in the editor when you select it without having to hit CTRL+C.
 
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/dinhani.copy-on-select?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=dinhani.copy-on-select&ssr=false)
 [![Rating](https://img.shields.io/visual-studio-marketplace/r/dinhani.copy-on-select?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=dinhani.copy-on-select&ssr=false#review-details)
@@ -8,9 +8,8 @@ This extension automatically copies the selected text in the editor when you sel
 
 ## Example
 
-The selected text is automatically copied when selected with the mouse first, then with the keyboard.
-
 ![Copy On Select example](https://raw.githubusercontent.com/dinhani/vscode-copy-on-select/master/images/vscode-copy-on-select.gif)
+*Selected text is automatically copied to clipboard when selected with mouse, then with keyboard.*
 
 ## Configuration
 
