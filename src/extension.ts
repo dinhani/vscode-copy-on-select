@@ -35,7 +35,10 @@ function shouldCopy(event: vscode.TextEditorSelectionChangeEvent): boolean {
     }
 
     // ignore clicks
-    const currentSelection = event.selections && event.selections.length && event.selections[0];
+    if (!event.selections || event.selections.length === 0) {
+        return false;
+    }
+    const currentSelection = event.selections[0];
     const currentSelectionIsJustAClick = currentSelection.anchor.line === currentSelection.active.line && currentSelection.anchor.character === currentSelection.active.character;
     if (currentSelectionIsJustAClick) {
         return false;
